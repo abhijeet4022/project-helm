@@ -1,0 +1,78 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: frontend
+  labels:
+    app.kubernetes.io/name: frontend
+spec:
+  containers:
+    - name: frontend
+      image: rkalluru/frontend
+      ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: catalogue
+  labels:
+    app.kubernetes.io/name: catalogue
+spec:
+  containers:
+    - name: catalogue
+      image: rkalluru/catalogue
+      ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: user
+  labels:
+    app.kubernetes.io/name: user
+spec:
+  containers:
+    - name: user
+      image: rkalluru/user
+      ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cart
+  labels:
+    app.kubernetes.io/name: cart
+spec:
+  containers:
+    - name: cart
+      image: rkalluru/cart
+      ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: shipping
+  labels:
+    app.kubernetes.io/name: shipping
+spec:
+  containers:
+    - name: shipping
+      image: rkalluru/shipping
+      ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: payment
+  labels:
+    app.kubernetes.io/name: payment
+spec:
+  containers:
+    - name: payment
+      image: rkalluru/payment
+      ports:
+        - containerPort: 8080
+
