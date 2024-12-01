@@ -14,7 +14,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: catalogue
+  name: catalogue-roboshop
 spec:
   selector:
     app.kubernetes.io/name: catalogue
