@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: "{{.Values.component}}-roboshop"
+  name: "{{.Values.component}}"
 spec:
   type: {{ .Values.service_type }}
   selector:
