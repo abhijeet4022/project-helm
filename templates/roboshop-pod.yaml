@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{.Values.component}}-pod"
+  labels:
+    app.kubernetes.io/name: {{.Values.component}}
+spec:
+  containers:
+    - name: "{{.Values.component}}-container"
+      image: rkalluru/{{.Values.component}}
+      ports:
+        - containerPort: {{.Values.appPort}}
