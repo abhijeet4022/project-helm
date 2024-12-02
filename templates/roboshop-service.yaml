@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: "{{.Values.component}}-roboshop"
 spec:
+  type: {{ .Values.service_type }}
   selector:
     app.kubernetes.io/name: {{.Values.component}}
   ports:
     - protocol: TCP
       port: 80
       targetPort: {{.Values.appPort}}
-  type: { { .Values.service_type } }
