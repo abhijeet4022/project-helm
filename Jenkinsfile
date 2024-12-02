@@ -14,7 +14,19 @@ pipeline {
         string(name: 'APPNAME', defaultValue: '', description: 'Specify the name of the component to deploy.')
     }
 
+    environment {
+            BADGE_NAME = "Helm Deployment" // Name of the badge
+    }
+
     stages {
+        stage('Set Build Badge') {
+            steps {
+                script {
+                    currentBuild.description = "${BADGE_NAME}: In Progress 🔵"
+                }
+            }
+        }
+
         stage('Set Up Kubernetes Context') {
             description 'This stage updates the kubeconfig for the EKS cluster.'
             steps {
@@ -48,4 +60,22 @@ pipeline {
             }
         }
     }
+
+    post {
+        success {
+            script {
+                currentBuild.description = "${BADGE_NAME}: Success ✅"
+            }
+        }
+        failure {
+            script {
+                currentBuild.description = "${BADGE_NAME}: Failed ❌"
+            }
+        }
+        always {
+            cleanWs() // Clean workspace after every build
+        }
+    }
+
+
 }
