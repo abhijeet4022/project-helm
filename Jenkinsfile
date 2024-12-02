@@ -28,7 +28,6 @@ pipeline {
         }
 
         stage('Set Up Kubernetes Context') {
-            description 'This stage updates the kubeconfig for the EKS cluster.'
             steps {
                 script {
                     // Updating the kubeconfig for the specified environment's EKS cluster
@@ -38,7 +37,6 @@ pipeline {
         }
 
         stage('Clone Application and Helm Code') {
-            description 'This stage clones the application code and Helm chart repository for deployment.'
             steps {
                 script {
                     // Create APP dir and clone the specified application repository using the APPNAME parameter to use variables.
