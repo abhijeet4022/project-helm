@@ -53,8 +53,7 @@ pipeline {
 
         stage('Helm Deploy'){
             steps{
-                // sh 'helm upgrade -i ${APPNAME} ./CHART  -f APP/helm/${ENV}.yaml'
-                sh 'helm upgrade -i roboshop ./CHART'
+                sh 'helm upgrade -i ${APPNAME} ./CHART -f APP/helm/${ENV}.yaml'
             }
         }
     }
