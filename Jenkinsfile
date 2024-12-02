@@ -43,7 +43,7 @@ pipeline {
                 script {
                     // Create APP dir and clone the specified application repository using the APPNAME parameter to use variables.
                     dir('APP') {
-                        git branch: 'main', url: "https://github.com/abhijeet4022/${params.APPNAME}"
+                        git branch: 'main', url: "https://github.com/abhijeet4022/${params.APPNAME}-v1"
                     }
                     // Create CHART dir and clone the Helm chart repository for deployment.
                     dir('CHART') {
