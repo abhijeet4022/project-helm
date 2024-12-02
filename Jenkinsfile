@@ -12,6 +12,7 @@ pipeline {
     parameters {
         string(name: 'ENV', defaultValue: 'dev', description: 'Specify the target environment for deployment.')
         string(name: 'APPNAME', defaultValue: '', description: 'Specify the name of the component to deploy.')
+        string(name: 'App_Version', defaultValue: '', description: 'Specify the App_Version of the component to deploy.')
     }
 
     environment {
@@ -53,7 +54,7 @@ pipeline {
 
         stage('Helm Deploy'){
             steps{
-                sh 'helm upgrade -i ${APPNAME} ./CHART -f APP/helm/${ENV}.yaml'
+                sh 'helm upgrade -i ${APPNAME} ./CHART -f APP/helm/${ENV}.yaml --set App_Version=${App_Version}'
             }
         }
     }

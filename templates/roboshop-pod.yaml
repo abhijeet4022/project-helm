@@ -7,6 +7,6 @@ metadata:
 spec:
   containers:
     - name: "{{.Values.component}}-container"
-      image: rkalluru/{{.Values.component}}
+      image: 060795929502.dkr.ecr.us-east-1.amazonaws.com/{{.Values.component}}:{{.Values.App_Version}}
       ports:
         - containerPort: {{.Values.appPort}}
