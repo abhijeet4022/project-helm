@@ -1,12 +1,13 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: "{{.Values.component}}-pod"
+  name: "{{.Values.component}}"
   labels:
     app.kubernetes.io/name: {{.Values.component}}
 spec:
+  serviceAccountName: {{ .Values.component }}
   containers:
-    - name: "{{.Values.component}}-container"
+    - name: "{{.Values.component}}"
       image: 060795929502.dkr.ecr.us-east-1.amazonaws.com/{{.Values.component}}:{{.Values.App_Version}}
       ports:
         - containerPort: {{.Values.appPort}}
