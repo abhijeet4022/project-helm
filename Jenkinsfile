@@ -28,7 +28,7 @@ pipeline {
             }
         }
 
-        stage('Set Up Kubernetes Context') {
+        stage('Update Kube-Config File') {
             steps {
                 script {
                     // Updating the kubeconfig for the specified environment's EKS cluster
