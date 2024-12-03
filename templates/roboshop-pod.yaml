@@ -13,5 +13,5 @@ spec:
         - containerPort: {{.Values.appPort}}
   initContainers:
     - name: roboshop-init-cont
-      image: 060795929502.dkr.ecr.us-east-1.amazonaws.com/project-init-cont:2.0.0
+      image: 060795929502.dkr.ecr.us-east-1.amazonaws.com/project-init-cont:2.0.1
       imagePullPolicy: Always
