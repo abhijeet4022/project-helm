@@ -15,6 +15,9 @@ spec:
       image: 060795929502.dkr.ecr.us-east-1.amazonaws.com/{{.Values.component}}:{{.Values.App_Version}}
       ports:
         - containerPort: {{.Values.appPort}}
+      volumeMounts:
+        - mountPath: /common
+          name: common
   initContainers:
     - name: roboshop-init-cont
       image: 060795929502.dkr.ecr.us-east-1.amazonaws.com/project-init-cont:2.0.1
