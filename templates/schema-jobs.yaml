@@ -1,0 +1,25 @@
+{{- if .Values.schema.enabled }}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: "{{.Values.component}}-schema"
+  annotations:
+    "helm.sh/hook": pre-install
+spec:
+  template:
+    spec:
+      serviceAccountName: {{ .Values.component }}
+      containers:
+        - name: "{{.Values.component}}-schema"
+          image: 060795929502.dkr.ecr.us-east-1.amazonaws.com/project-init-cont-schema:2.0.3
+          env:
+            - name: COMPONENT
+              value: { { .Values.component } }
+            - name: ENV
+              value: { { .Values.env } }
+            - name: DB_TYPE
+              value: { { .Values.schema.DB_TYPE } }
+          imagePullPolicy: Always
+      restartPolicy: Never
+  backoffLimit: 4
+{{- end }}
