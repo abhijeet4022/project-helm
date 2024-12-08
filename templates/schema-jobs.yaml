@@ -3,8 +3,9 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: "{{.Values.component}}-schema"
-#  annotations:
-#    "helm.sh/hook": pre-install
+  annotations:
+    "helm.sh/hook": pre-install
+    "helm.sh/hook-weight": "1"  # Ensures Job is created after SA
 spec:
   template:
     spec:
