@@ -12,7 +12,7 @@ spec:
       serviceAccountName: {{ .Values.component }}
       containers:
         - name: "{{.Values.component}}-schema"
-          image: 060795929502.dkr.ecr.us-east-1.amazonaws.com/project-init-cont-schema:2.0.5
+          image: 060795929502.dkr.ecr.us-east-1.amazonaws.com/project-init-cont-schema:2.0.6
           env:
             - name: COMPONENT
               value: {{ .Values.component }}
