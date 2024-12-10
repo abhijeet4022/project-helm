@@ -12,7 +12,7 @@ spec:
   serviceAccountName: {{ .Values.component }}
   containers:
     - name: "{{.Values.component}}"
-      image: 060795929502.dkr.ecr.us-east-1.amazonaws.com/{{.Values.component}}:{{.Values.App_Version}}
+      image: 940482433230.dkr.ecr.us-east-1.amazonaws.com/{{.Values.component}}:{{.Values.App_Version}}
       ports:
         - containerPort: {{.Values.appPort}}
       volumeMounts:
@@ -20,7 +20,7 @@ spec:
           name: common
   initContainers:
     - name: roboshop-init-cont
-      image: 060795929502.dkr.ecr.us-east-1.amazonaws.com/project-init-cont:2.0.1
+      image: 940482433230.dkr.ecr.us-east-1.amazonaws.com/project-init-cont:3.0.0
       imagePullPolicy: Always
       volumeMounts:
         - mountPath: /common
